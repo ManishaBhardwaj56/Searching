@@ -1,0 +1,36 @@
+Create an array size of 2000 and fill each element with formula (i*2+6) search for a target (k=726) number of times your loop will run?
+
+//Binary search
+
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        int n=2000;
+        int arr[]=new int[n];
+        //making n size array and filling val inside
+        for(int i =0; i<n; i++){
+            arr[i]= i*2 + 6;
+        }
+        
+        int k=726;
+        int index = -1;
+        int start =0; int end = n-1;
+        int count =0;
+        while(start<=end){
+            count++;
+            int mid =(start+end)/2;
+            if(arr[mid] == k){
+                index = mid;
+                System.out.println("found");
+                break;
+            }
+            else if(arr[mid]>k) end=mid-1;
+            else{
+                start = mid+1;
+            } 
+            
+        }
+        if(index ==-1) System.out.println("Not Found");
+        System.out.println(count);
+    }
+}
