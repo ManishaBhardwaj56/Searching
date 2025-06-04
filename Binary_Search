@@ -1,0 +1,32 @@
+Binary Search Program
+
+//Binary search
+
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        int n=100000;
+        int arr[]=new int[n];
+        //making n size array and filling val inside
+        for(int i =0; i<n; i++){
+            arr[i]=i+2;
+        }
+        
+        int k=-500;
+        int index = -1;
+        int start =0; int end = n-1;
+        while(start<=end){
+            int mid =(start+end)/2;
+            if(arr[mid] == k){
+                index = mid;
+                System.out.println("found");
+                break;
+            }
+            else if(arr[mid]>k) end=mid-1;
+            else{
+                start = mid+1;
+            }
+        }
+        if(index ==-1) System.out.println("Not Found");
+    }
+}
